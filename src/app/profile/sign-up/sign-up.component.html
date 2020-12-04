@@ -1,0 +1,59 @@
+<div class="login">
+    <form [formGroup]="signUp" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label>Name</label>
+            <input formControlName="name" placeholder="name" />
+            <div class="errors" *ngIf="name.invalid && name.touched">
+                <small *ngIf="name.errors?.required">name is required</small>
+                <small *ngIf="name.errors?.minlength">name must contain atleast 3 letters</small>
+            </div>
+        </div>
+        <div class="field">
+            <label>Email</label>
+            <input formControlName="email" placeholder="example@gmail.com" />
+            <div class="errors" *ngIf="(email.invalid && email.touched) || error.alreadyExist">
+                <small *ngIf="email.errors?.required">email is required</small>
+                <small *ngIf="email.errors?.email">please enter a vald email</small>
+                <small *ngIf="error.alreadyExist">email already exist</small>
+            </div>
+        </div>
+        <div style="margin-bottom: 3rem;" class="field">
+            <label>Create Password</label>
+            <input [type]="show ? 'text' : 'password'" (input)="validate($event.target.value)"
+                formControlName="password" placeholder="type a strong password" placeholder="type a strong password" />
+            <app-show (toggle)="showPass($event)" [show]="false"></app-show>
+            <div class="strength">
+                <div class="bar bar-1" [class.bar-show]="strength > 0"></div>
+                <div class="bar bar-2" [class.bar-show]="strength > 1"></div>
+                <div class="bar bar-3" [class.bar-show]="strength > 2"></div>
+                <div class="bar bar-4" [class.bar-show]="strength > 3"></div>
+            </div>
+            <div style="margin-bottom: -1.5rem;" class="errors" *ngIf="password.invalid && password.touched">
+                <small *ngIf="password.errors?.required">password is required</small>
+                <small *ngIf="password.errors?.minlength">password must contain atleast 6 letters</small>
+            </div>
+        </div>
+        <div class="field">
+            <label>Confirm Password</label>
+            <input [type]="show ? 'text' : 'password'" formControlName="confirmPass"
+                placeholder="i hope you remember" />
+            <app-show (toggle)="showPass($event)" [show]="false"></app-show>
+            <div class="errors" *ngIf="confirmPassword.touched">
+                <small *ngIf="confirmPassword.invalid && confirmPassword.errors?.required">confirm your
+                    password</small><small *ngIf="signUp.errors?.misMatch && !confirmPassword.errors?.required">password
+                    did not matched</small>
+            </div>
+        </div>
+        <div class="agree">
+            <label>accept terms & conditions</label>
+            <input type="checkbox" formControlName="agree" />
+            <span class="custom"></span>
+            <div class="errors" *ngIf="agree.invalid && agree.touched">
+                <small>please our accept terms and conditions</small>
+            </div>
+        </div>
+        <button [disabled]="signUp.invalid" type="submit">
+            Sign Up
+        </button>
+    </form>
+</div>

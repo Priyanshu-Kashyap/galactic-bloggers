@@ -1,0 +1,17 @@
+<div *ngIf="blog" class="blog">
+    <div class="blog-info">
+        <em class="blog-title">{{blog.title}}</em>
+        <div class="blog-insights">
+            <i class="material-icons">visibility</i>{{blog.views}}
+        </div>
+    </div>
+    <div *ngIf="user" class="created-by">
+        <img [src]="user.photoURL" alt="" />
+        <span>
+            <p>{{user.displayName}}</p>
+            <em>@{{user.username}}</em>
+        </span>
+    </div>
+
+    <p class="blog-content">{{blog.content}}</p>
+</div>

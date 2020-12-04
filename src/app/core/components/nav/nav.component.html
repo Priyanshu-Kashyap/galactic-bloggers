@@ -1,0 +1,36 @@
+<nav #nav appShrinkNav>
+  <span><img src="../../assets/img/logo.svg" alt="" /></span>
+  <div *ngIf="isBlog" class="search-bar">
+    <i class="material-icons">search</i>
+    <input type="text" placeholder="search" />
+  </div>
+  <div class="nav-items">
+    <a
+      *ngFor="let navLink of navLinks"
+      [routerLink]="navLink"
+      routerLinkActive="active-link"
+      >{{ navLink }}</a
+    >
+    <i (click)="show = !show" class="material-icons">{{
+      show ? "arrow_left" : "arrow_right"
+    }}</i>
+  </div>
+  <div *ngIf="show" class="dropdown">
+    <div routerLink="profile" routerLinkActive="active">
+      <i class="material-icons">account_circle</i><span>profile</span
+      ><i class="material-icons arrow-icon">arrow_forward_ios</i>
+    </div>
+    <div>
+      <i class="material-icons">brightness_low</i><span>settings</span
+      ><i class="material-icons arrow-icon">arrow_forward_ios</i>
+    </div>
+    <div
+      class="sign-out"
+      (click)="userAuth.signOut()"
+      *ngIf="userAuth.user$ | async as user"
+    >
+      <i class="material-icons">login</i>
+      <span>sign out</span>
+    </div>
+  </div>
+</nav>

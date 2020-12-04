@@ -1,0 +1,42 @@
+.card {
+  position: relative;
+  border-radius: 20px;
+  height: 200px;
+  background-color: #100e17;
+  padding: 1rem;
+  box-shadow: -0.5rem 0 1rem #00000075;
+  flex-direction: column;
+  transition: 0.25s;
+  cursor: pointer;
+  div {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  em {
+    text-transform: capitalize;
+  }
+  span {
+    position: absolute;
+    height: 50%;
+    width: 90%;
+    bottom: 1rem;
+    overflow: hidden;
+    a {
+      position: absolute;
+      bottom: 0;
+      text-align: right;
+      background: #100e17;
+      color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      padding-right: 1rem;
+    }
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+}

@@ -1,0 +1,36 @@
+<div class="profile">
+  <div class="user-profile">
+    <div *ngIf="user; else login" class="user-login">
+      <div class="user-img">
+        <img [src]="user.photoURL" />
+      </div>
+      <p class="user-name">{{ user.username }}</p>
+    </div>
+    <ng-template #login>
+      <div *ngIf="!signUp" class="user-login">
+        <div (click)="userAuth.loginWithGoogle()" class="login-google">
+          <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
+          <span>Google</span>
+        </div>
+      </div>
+    </ng-template>
+    <div class="user-info" *ngIf="user; else form">
+      <div>
+        <p>Name : {{ user.displayName }}</p>
+        <p>{{ user.about }}</p>
+      </div>
+      <button (click)="userAuth.signOut()" class="sign-in">sign out</button>
+    </div>
+    <ng-template #form>
+      <div class="forms">
+        <router-outlet></router-outlet>
+        <a [routerLink]="signUp ? 'login' : 'signup'">
+          {{ signUp ? "already have an account" : "create new account" }}
+        </a>
+      </div>
+    </ng-template>
+  </div>
+  <div *ngIf="user" class="user-blogs">
+    <app-blog-list [uid]="user.uid"></app-blog-list>
+  </div>
+</div>

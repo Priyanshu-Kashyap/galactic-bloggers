@@ -1,0 +1,13 @@
+<div class="container">
+  <div [routerLink]="blog.bid" *ngFor="let blog of blogList" class="card">
+    <div *ngIf="userDetails">
+      <img [src]="userDetails.photoURL" alt="" />
+      <p>{{ userDetails.username }}</p>
+    </div>
+    <em>{{ blog.title }}</em>
+    <span>
+      <p>{{ blog.content }}</p>
+      <a>...read more</a>
+    </span>
+  </div>
+</div>

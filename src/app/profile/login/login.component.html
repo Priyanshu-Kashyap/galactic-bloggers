@@ -1,0 +1,24 @@
+<div class="login">
+    <form [formGroup]="login" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label>E-mail</label>
+            <input type="email" formControlName="email" placeholder="email" />
+            <div class="errors" *ngIf="(email.invalid && email.touched) || error.notFound">
+                <small *ngIf="email.errors?.required">email is required</small>
+                <small *ngIf="error.notFound">user not found 404</small>
+            </div>
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input [type]="show ? 'text' : 'password'" formControlName="password" placeholder="password" />
+            <app-show (toggle)="showPass($event)" [show]="false"></app-show>
+            <div class="errors" *ngIf="(password.invalid && password.touched) || error.wrongPass">
+                <small *ngIf="password.errors?.required">forgot to type your password</small>
+                <small *ngIf="error.wrongPass">invalid password or email</small>
+            </div>
+        </div>
+        <button [disabled]="login.invalid" type="submit">
+            login
+        </button>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+<div class="banner">
+    <div class="content">
+        <div class="read">
+            <em>Lets Dive Deep into the space</em>
+            <p>if you want to read some awesome blogs related to astronomy,</p>
+            <p>you are at the right place</p>
+            <button routerLink="/explore">Explore</button>
+        </div>
+        <div class="register">
+            <em>wanna write your own blogs?</em>
+            <button [routerLink]="!loggedIn ? '/profile' : '/profile/write'">
+                {{ !loggedIn ? 'Login / Sign Up' : 'write a blog' }}
+            </button>
+        </div>
+    </div>
+</div>

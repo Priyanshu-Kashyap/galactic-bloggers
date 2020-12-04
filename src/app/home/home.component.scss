@@ -1,0 +1,39 @@
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  background-image: url(../../assets/img/interstellar.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  .content {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.75);
+    flex-direction: column;
+    width: 50%;
+    .read,
+    .register {
+      padding: 20px;
+      width: 80%;
+      margin: 5% 0 0 5%;
+      border-radius: 30px;
+      background-color: #17142d50;
+      backdrop-filter: blur(5px);
+      flex-direction: column;
+    }
+    em {
+      font-size: 1.6rem;
+    }
+    button {
+      background: linear-gradient(45deg, #ff8a00, #e52e71);
+      margin-top: 20px;
+      border-radius: 40px;
+      font-size: 1rem;
+      color: white;
+      align-self: flex-start;
+    }
+    @media (max-width: 576px) {
+      width: 100%;
+    }
+  }
+}
