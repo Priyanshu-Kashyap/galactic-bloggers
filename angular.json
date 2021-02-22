@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gallactic-bloggers": {
+    "galactic-bloggers": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/gallactic-bloggers",
+            "outputPath": "dist/galactic-bloggers",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "gallactic-bloggers:build"
+            "browserTarget": "galactic-bloggers:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gallactic-bloggers:build:production"
+              "browserTarget": "galactic-bloggers:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gallactic-bloggers:build"
+            "browserTarget": "galactic-bloggers:build"
           }
         },
         "test": {
@@ -114,18 +114,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "gallactic-bloggers:serve"
+            "devServerTarget": "galactic-bloggers:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "gallactic-bloggers:serve:production"
+              "devServerTarget": "galactic-bloggers:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "gallactic-bloggers",
+  "defaultProject": "galactic-bloggers",
   "cli": {
     "analytics": "b5824b11-4dc7-48fb-a77c-594df7c02ab2"
   }
